@@ -5,16 +5,14 @@ import akka.pattern.ask
 import akka.pattern.pipe
 import akka.util.duration.intToDurationInt
 import akka.util.Timeout
+import akka.dispatch.Await
 
 object AskPatternApp extends App {
   implicit val timeout = Timeout(50000 milliseconds)
   val system = ActorSystem("askPattern")
   val longWorkingActor = system.actorOf(Props[LongWorkingActor])
-  val future = (system.actorOf(Props[LongWorkingActor]) ? 10).mapTo[Int]
-  future map {
-    case result: Int => println(result)
-    case _ => println("error")
-  }
+  val result = Await.result((longWorkingActor ? 10), timeout.duration).asInstanceOf[Int]
+  println(result)
 }
 
 class LongWorkingActor extends Actor {
