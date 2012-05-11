@@ -7,13 +7,13 @@ import akka.actor.ActorSystem
 object SupervisionApp extends App {
 	val system = ActorSystem("supervisionApp")
 	val parent = system.actorOf(Props[ParentActor], "parent") ! "init"
+	system.actorFor("akka://supervisionApp/user/parent/child") ! ""
 }
 
 class ParentActor extends Actor {
   def receive = {
     case msg =>
-      println("In Parent")
-      context.actorOf(Props[ChildActor], "child") ! ""
+      println(context.actorOf(Props[ChildActor], "child").path)
   }
 }
 
