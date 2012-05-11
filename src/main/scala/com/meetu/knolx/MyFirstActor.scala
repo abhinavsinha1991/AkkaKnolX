@@ -1,8 +1,6 @@
 package com.meetu.knolx
 
-import akka.actor.Actor
-import akka.actor.ActorSystem
-import akka.actor.Props
+import akka.actor.{ Actor, ActorSystem, Props }
 
 object MyFirstActorApp extends App {
   val system = ActorSystem("firstApp")

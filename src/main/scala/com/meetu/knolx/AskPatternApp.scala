@@ -2,7 +2,6 @@ package com.meetu.knolx
 
 import akka.actor.{ Actor, ActorRef, ActorSystem, PoisonPill, Props }
 import akka.pattern.ask
-import akka.pattern.pipe
 import akka.util.duration.intToDurationInt
 import akka.util.Timeout
 import akka.dispatch.Await
