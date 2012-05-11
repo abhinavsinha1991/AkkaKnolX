@@ -4,10 +4,10 @@ import akka.actor.Actor
 import akka.actor.Props
 import akka.actor.ActorSystem
 
-object SupervisionApp extends App {
-	val system = ActorSystem("supervisionApp")
+object ActorPathApp extends App {
+	val system = ActorSystem("actorPathApp")
 	val parent = system.actorOf(Props[ParentActor], "parent") ! "init"
-	system.actorFor("akka://supervisionApp/user/parent/child") ! ""
+	system.actorFor("akka://actorPathApp/user/parent/child") ! ""
 }
 
 class ParentActor extends Actor {
