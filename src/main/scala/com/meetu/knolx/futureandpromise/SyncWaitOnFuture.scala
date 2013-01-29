@@ -2,7 +2,6 @@ package com.meetu.knolx.futureandpromise
 
 import akka.actor.ActorSystem
 import akka.dispatch.Future
-import akka.pattern.ask
 import akka.util.duration._
 import akka.util.Timeout
 import akka.dispatch.Await
