@@ -9,6 +9,7 @@ import akka.dispatch.Future
 object ComposingFutureWithMap extends App {
   implicit val system = ActorSystem("future")
   val startTime = System.currentTimeMillis
+  
   // creating two futures
   val future1 = Future { identity(1) }
   val future2 = Future { identity(2) }
